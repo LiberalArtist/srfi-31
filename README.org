@@ -1,6 +1,8 @@
 * SRFI 31: A special form `rec' for recursive evaluation
 
-** by Mirko.Luedde@Computer.Org
+** by Mirko Luedde
+
+
 
 This repository hosts [[https://srfi.schemers.org/srfi-31/][SRFI 31]]: A special form `rec' for recursive evaluation, a [[https://srfi.schemers.org/][Scheme Request for Implementation]].
 

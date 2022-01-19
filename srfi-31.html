@@ -1,23 +1,20 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<html lang="en">
   <head>
     <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
     <title>SRFI 31: A special form `rec' for recursive evaluation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/srfi.css" type="text/css" />
+    <link rel="stylesheet" href="https://srfi.schemers.org/srfi.css" type="text/css" />
+    <link href="/favicon.png" rel="icon" sizes="192x192" type="image/png">
   </head>
 
   <body>
 
-<H1>Title</H1>
+<h1><a href="https://srfi.schemers.org/"><img class="srfi-logo" src="https://srfi.schemers.org/srfi-logo.svg" alt="SRFI surfboard logo" /></a>31: A special form <CODE>rec</CODE> for recursive evaluation</h1>
 
-A special form <CODE>rec</CODE> for recursive evaluation
+<p>by Mirko Luedde</p>
 
-<H1>Author</H1> 
-
-Mirko Luedde
-
-<H1>Status</H1>
+<h2>Status</h2>
 
 <p>This SRFI is currently in <em>final</em> status.  Here is <a href="https://srfi.schemers.org/srfi-process.html">an explanation</a> of each status that a SRFI can hold.  To provide input on this SRFI, please send email to <code><a href="mailto:srfi+minus+31+at+srfi+dotschemers+dot+org">srfi-31@<span class="antispam">nospam</span>srfi.schemers.org</a></code>.  To subscribe to the list, follow <a href="https://srfi.schemers.org/srfi-list-subscribe.html">these instructions</a>.  You can access previous messages via the mailing list <a href="https://srfi-email.schemers.org/srfi-31">archive</a>.</p>
 <UL>
@@ -26,7 +23,7 @@ Mirko Luedde
   <LI>Final: 2002-12-02</LI>
 </UL>
 
-<H1>Abstract</H1> 
+<h2>Abstract</h2>
 
 We propose the implementation of a special form
 called <CODE>rec</CODE>.  This form is a generalization and
@@ -42,9 +39,9 @@ constructions like the H. B. Curry combinator and, unlike
 <CODE>define</CODE>, without introducing variable bindings into the
 external environment.
 
-<H1>Rationale</H1> 
+<h2>Rationale</h2>
 
-<H2>General</H2> Among the prominent features of the Scheme
+<h3>General</h3> Among the prominent features of the Scheme
 programming language as defined in <a href="#[KCR1998]">[KCR1998]</a>
 are the following.
 
@@ -73,9 +70,9 @@ notation as possible,</LI>
 
 </OL>
 
-<H2>Example</H2> 
+<h3>Example</h3>
 
-<H3>Problem 1</H3> 
+<h4>Problem 1</h4>
 
 Let us look at the factorial function. In mathematical notation this
 function is expressed as
@@ -157,7 +154,7 @@ desirable. </LI>
 
 </UL>
 
-<H3>Solution 1</H3> 
+<h4>Solution 1</h4>
 
 A solution to our problem was already provided in <A
 href="#[Clinger1985]">[Clinger1985]</A> by the form
@@ -181,7 +178,7 @@ state-of-the-art implementations such as Chez Scheme (6.0a) and MIT
 Scheme (7.7.0). (The latter actually knows a form
 <CODE>named-lambda</CODE> with different semantics).
 
-<H3>Problem 2</H3> 
+<h4>Problem 2</h4>
 
 The constant stream of ones can be defined via
 
@@ -192,7 +189,7 @@ object at the price of spending an externally bound name. Remedying
 this with <CODE>let</CODE> or <CODE>letrec</CODE> leads to similar
 objections as above.
 
-<H3>Solution 2</H3> 
+<h4>Solution 2</h4>
 
 This particular case of the self-referential problem was solved by the
 <CODE>rec</CODE> form in <A href="#[Clinger1985]">[Clinger1985]</A>.
@@ -219,7 +216,7 @@ like
 This again does not seem quite as simple and intuitive as the
 mathematical notation.
 
-<H2>Proposal</H2> 
+<h3>Proposal</h3>
 
 We therefore propose to implement the <CODE>rec</CODE> special form in
 a generalized way that combines the advantages of the
@@ -232,9 +229,9 @@ The factorial function could be written
        (* N (F (- N 1)))))
 </PRE>
 
-<H1>Specification</H1>
+<h2>Specification</h2>
 
-<H2>Syntax</H2> 
+<h3>Syntax</h3>
 
 The following production rules are to be added to those of <a
 href="#[KCR1998]">[KCR1998]</a> (we reuse names of non-terminals).
@@ -251,7 +248,7 @@ href="#[KCR1998]">[KCR1998]</a> (we reuse names of non-terminals).
 
 </OL>
 
-<H2>Semantics</H2> 
+<h3>Semantics</h3>
 
 Scheme versions such as <A href="#[KCR1998]">[KCR1998]</A> providing
 <CODE>define-syntax</CODE>, <CODE>syntax-rules</CODE>,
@@ -267,7 +264,7 @@ Scheme versions such as <A href="#[KCR1998]">[KCR1998]</A> providing
      (letrec ( (NAME EXPRESSION) ) NAME))))
 </PRE>
 
-<H2>Test</H2>
+<h3>Test</h3>
 
 The following session shows in which way <CODE>rec</CODE> allows a
 tail-recursive implementation of the factorial function.
@@ -285,13 +282,13 @@ tail-recursive implementation of the factorial function.
 3628800
 </PRE>
 
-<H1>Acknowledgements</H1> 
+<h2>Acknowledgements</h2>
 
 The author thanks Al Petrofsky for the final solution and Hal Abelson,
 Chris Hanson and others for their input. The work of the maintainers
 of the SRFI forum is highly appreciated.
 
-<H1>Bibliography</H1>
+<h2>Bibliography</h2>
 
 <UL>
 
@@ -318,7 +315,7 @@ HREF=http://www.swiss.ai.mit.edu/ftpdir/scheme-mail/HTML/rrrs-1985>http://www.sw
 </LI>
 </UL>
 
-<H1>Copyright</H1>
+<h2>Copyright</h2>
 
 <p>Copyright (C) Dr. Mirko Luedde (2002). All Rights Reserved.</p>
 
